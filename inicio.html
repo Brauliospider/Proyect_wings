@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pinches alitas Diego - Laitas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2 style="color: #2e1065; text-align: center; font-family: 'Segoe UI', sans-serif; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); margin-bottom: 30px;">Pinches Alitas Diego</h2>
+    <form action="tu_script_de_autenticacion.php" method="post" class="login-form" style="max-width: 400px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
+        <div style="margin-bottom: 25px;">
+            <label for="id" style="display: block; margin-bottom: 8px; color: #374151; font-weight: 500; font-size: 14px;">ID DE USUARIO</label>
+            <input type="text" id="id" name="id" placeholder="123456789" required style="width: 100%; padding: 12px; border: 1px solid #d4d4d8; border-radius: 6px; background: white; font-size: 14px;">
+        </div>
+        <div style="margin-bottom: 30px;">
+            <label for="password" style="display: block; margin-bottom: 8px; color: #374151; font-weight: 500; font-size: 14px;">CONTRASEÑA</label>
+            <input type="password" id="password" name="password" placeholder="312005" required style="width: 100%; padding: 12px; border: 1px solid #d4d4d8; border-radius: 6px; background: white; font-size: 14px;">
+        </div>
+        <button type="button" onclick="window.location.href='paguina-inicial.html';" style="width: 100%; padding: 14px; background: #4f46e5; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; transition: all 0.3s; letter-spacing: 0.5px;">ACCEDER AL SISTEMA</button>
+    </form>
+<style>
+    body {
+        background: #f8fafc;
+        font-family: 'Segoe UI', 'Roboto', sans-serif;
+        padding: 60px 20px;
+        min-height: 100vh;
+    }
+    .login-form input[type="submit"]:hover {
+        background: #4338ca !important;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(79,70,229,0.2);
+    }
+</style>
+</body>
+</html>

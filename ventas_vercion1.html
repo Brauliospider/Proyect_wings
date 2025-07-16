@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo de Ventas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos personalizados adicionales */
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+        }
+        
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        
+        /* Scroll personalizado */
+        .products-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .products-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        .products-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4 max-w-6xl">
+        <h1 class="text-3xl font-bold text-center text-blue-600 mb-8">Módulo de Ventas</h1>
+        
+        <div class="flex flex-col lg:flex-row gap-6">
+            <!-- Panel de productos disponibles -->
+            <div class="bg-white rounded-lg shadow-md p-4 lg:w-2/3">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">productos</h2>
+                
+                <div class="mb-4">
+                    <input type="text" id="search-product" placeholder="Buscar producto..." 
+                           class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                
+                <div class="products-container overflow-y-auto h-96">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- productos -->
+                        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+                            <div class="p-4">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3b659149-4562-47aa-9656-194b25d818a6.png" alt="Alitas con 10 piezas" class="w-full h-40 object-cover rounded-md mb-3">
+                                <h3 class="font-bold text-lg mb-1">Alitas 10 piezas</h3>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-blue-600">$105</span>
+                                    <button onclick="addToCart('Alitas 10 piezas ', 105, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3d973162-f4a8-4541-98f9-4e8a598692b3.png')" 
+                                            class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm transition">
+                                        Agregar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+                            <div class="p-4">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3b659149-4562-47aa-9656-194b25d818a6.png" alt="Alitas con 15 piezas" class="w-full h-40 object-cover rounded-md mb-3">
+                                <h3 class="font-bold text-lg mb-1">Alitas 15 piezas</h3>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-blue-600">$160</span>
+                                    <button onclick="addToCart('Alitas 15 piezas ', 160, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0e975411-2e86-4b09-8c3b-9e372fa12236.png')" 
+                                            class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm transition">
+                                        Agregar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+                            <div class="p-4">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fd7985f1-9d4f-4978-a8c6-5f4b55a88838.png" alt="Alitas 20 piezas" class="w-full h-40 object-cover rounded-md mb-3">
+                                <h3 class="font-bold text-lg mb-1">Alitas 20 piezas </h3>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-blue-600">$210</span>
+                                    <button onclick="addToCart('Alitas 20 piezas', 210, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/321ac8c1-5a29-4b9b-a105-41b52091b7d3.png')" 
+                                            class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm transition">
+                                        Agregar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <!-- Snacks Divider -->
+                        <div class="col-span-full mt-6 mb-4 relative">
+                            <hr class="border-gray-300">
+                            <span class="absolute left-1/2 -translate-x-1/2 -top-3 bg-white px-4 text-gray-600">SNACKS</span>
+                        </div>
+
+                        <!-- Snacks Products -->
+                        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+                            <div class="p-4">
+                                <img src="https://placehold.co/300x200" alt="Boneless (9 piezas)" class="w-full h-40 object-cover rounded-md mb-3">
+                                <h3 class="font-bold text-lg mb-1">Boneless (9 piezas)</h3>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-blue-600">$95</span>
+                                    <button onclick="addToCart('Boneless', 95, 'https://placehold.co/300x200')" 
+                                            class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm transition">
+                                        Agregar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+                            <div class="p-4">
+                                <img src="https://placehold.co/300x200" alt="Papas a la francesa" class="w-full h-40 object-cover rounded-md mb-3">
+                                <h3 class="font-bold text-lg mb-1">Papas a la francesa</h3>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-blue-600">$70</span>
+                                    <button onclick="addToCart('Papas a la francesa', 70, 'https://placehold.co/300x200')" 
+                                            class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm transition">
+                                        Agregar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+                            <div class="p-4">
+                                <img src="https://placehold.co/300x200" alt="Papas gajo" class="w-full h-40 object-cover rounded-md mb-3">
+                                <h3 class="font-bold text-lg mb-1">Papas gajo</h3>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-blue-600">$85</span>
+                                    <button onclick="addToCart('Papas gajo', 85, 'https://placehold.co/300x200')" 
+                                            class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm transition">
+                                        Agregar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+                            <div class="p-4">
+                                <img src="https://placehold.co/300x200" alt="Aros de cebolla" class="w-full h-40 object-cover rounded-md mb-3">
+                                <h3 class="font-bold text-lg mb-1">Aros de cebolla</h3>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-blue-600">$70</span>
+                                    <button onclick="addToCart('Aros de cebolla', 70, 'https://placehold.co/300x200')" 
+                                            class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm transition">
+                                        Agregar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+                            <div class="p-4">
+                                <img src="https://placehold.co/300x200" alt="Dedos de queso" class="w-full h-40 object-cover rounded-md mb-3">
+                                <h3 class="font-bold text-lg mb-1">Dedos de queso</h3>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-blue-600">$85</span>
+                                    <button onclick="addToCart('Dedos de queso', 85, 'https://placehold.co/300x200')" 
+                                            class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm transition">
+                                        Agregar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+                            <div class="p-4">
+                                <img src="https://placehold.co/300x200" alt="palomitas de pollo" class="w-full h-40 object-cover rounded-md mb-3">
+                                <h3 class="font-bold text-lg mb-1">Palomitas de pollo</h3>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-blue-600">$85</span>
+                                    <button onclick="addToCart('Palomitas de pollo', 85, 'https://placehold.co/300x200')" 
+                                            class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm transition">
+                                        Agregar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+                            <div class="p-4">
+                                <img src="https://placehold.co/300x200" alt="Nugetts" class="w-full h-40 object-cover rounded-md mb-3">
+                                <h3 class="font-bold text-lg mb-1">Nuggtes</h3>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-blue-600">$70</span>
+                                    <button onclick="addToCart('Nug', 70, 'https://placehold.co/300x200')" 
+                                            class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm transition">
+                                        Agregar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
+            
+                    
+            <!-- Carrito de compras -->
+            <div class="bg-white rounded-lg shadow-md p-4 lg:w-1/3">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Carrito de Compras</h2>
+                
+                <div id="cart-items" class="mb-4 max-h-64 overflow-y-auto">
+                    <!-- Los productos del carrito aparecerán aquí -->
+                    <p id="empty-cart-message" class="text-gray-500 text-center py-4">El carrito está vacío</p>
+                </div>
+                
+                <div class="border-t border-gray-200 pt-4">
+                    <div class="flex justify-between mb-4 font-bold text-lg">
+                        <span>Total:</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                    
+                    <button id="checkout-btn" onclick="checkout()" disabled
+                            class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-md transition opacity-50 cursor-not-allowed">
+                        Finalizar Compra
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales
+        let cart = [];
+        
+        // Función para agregar producto al carrito
+        function addToCart(name, price, image) {
+            // Buscar si el producto ya está en el carrito
+            const existingItem = cart.find(item => item.name === name);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    image: image,
+                    quantity: 1
+                });
+            }
+            
+            updateCart();
+            
+            // Mostrar notificación
+            showNotification(`${name} agregado al carrito`);
+        }
+        
+        // Función para quitar producto del carrito
+        function removeFromCart(name) {
+            cart = cart.filter(item => item.name !== name);
+            updateCart();
+            
+            // Mostrar notificación
+            showNotification(`${name} eliminado del carrito`);
+        }
+        
+        // Función para actualizar la cantidad de un producto
+        function updateQuantity(name, newQuantity) {
+            const item = cart.find(item => item.name === name);
+            if (item) {
+                item.quantity = parseInt(newQuantity);
+                if (item.quantity <= 0) {
+                    removeFromCart(name);
+                } else {
+                    updateCart();
+                }
+            }
+        }
+        
+        // Función para actualizar la visualización del carrito
+        function updateCart() {
+            const cartItemsDiv = document.getElementById('cart-items');
+            const subtotalElement = document.getElementById('subtotal');
+            const taxElement = document.getElementById('tax');
+            const totalElement = document.getElementById('total');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            
+            // Calcular totales
+            let subtotal = 0;
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+            });
+            
+            const total = subtotal 
+            
+            // Actualizar los totales
+            totalElement.textContent = `$${total.toFixed(2)}`;
+            
+            // Actualizar la lista de productos en el carrito
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = '<p id="empty-cart-message" class="text-gray-500 text-center py-4">El carrito está vacío</p>';
+                checkoutBtn.disabled = true;
+                checkoutBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                checkoutBtn.classList.remove('opacity-100');
+            } else {
+                emptyCartMessage?.remove();
+                
+                let cartHTML = '';
+                cart.forEach(item => {
+                    cartHTML += `
+                        <div class="cart-item flex items-center justify-between mb-3 pb-3 border-b border-gray-100 fade-in">
+                            <div class="flex items-center">
+                                <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-cover rounded-md mr-3">
+                                <div>
+                                    <h4 class="font-medium">${item.name}</h4>
+                                    <p class="text-sm text-gray-600">$${item.price.toFixed(2)}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <button onclick="updateQuantity('${item.name}', ${item.quantity - 1})" 
+                                        class="bg-gray-200 hover:bg-gray-300 text-gray-800 w-6 h-6 rounded-l-md transition">
+                                    -
+                                </button>
+                                <input type="number" value="${item.quantity}" min="1" 
+                                       onchange="updateQuantity('${item.name}', this.value)"
+                                       class="quantity-input border-t border-b border-gray-300 h-6 text-center">
+                                <button onclick="updateQuantity('${item.name}', ${item.quantity + 1})" 
+                                        class="bg-gray-200 hover:bg-gray-300 text-gray-800 w-6 h-6 rounded-r-md transition">
+                                    +
+                                </button>
+                                <button onclick="removeFromCart('${item.name}')" 
+                                        class="ml-2 text-red-500 hover:text-red-700 transition">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                cartItemsDiv.innerHTML = cartHTML;
+                checkoutBtn.disabled = false;
+                checkoutBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                checkoutBtn.classList.add('opacity-100');
+            }
+        }
+        
+        // Función para finalizar la compra
+        function checkout() {
+    if (cart.length === 0) return
+
+            // Aquí normalmente se enviaría la orden a un servidor
+            // Por ahora mostramos un mensaje de confirmación
+            const total = document.getElementById('total').textContent;
+            const message = `¡Compra exitosa!\nTotal: ${total}\n\nGracias por su compra.`;
+            alert(message);
+            
+            // Vaciar el carrito
+            cart = [];
+            updateCart();
+            
+            // Mostrar notificación
+            showNotification('Compra realizada con éxito');
+        }
+
+        // Función para mostrar notificaciones
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-md shadow-lg transition-opacity opacity-0';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Mostrar la notificación
+            setTimeout(() => notification.classList.add('opacity-100'), 10);
+            
+            // Ocultar después de 3 segundos
+            setTimeout(() => {
+                notification.classList.remove('opacity-100');
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+        
+        // Buscador de productos (simulado)
+        document.getElementById('search-product').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach(card => {
+                const productName = card.querySelector('h3').textContent.toLowerCase();
+                if (productName.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
