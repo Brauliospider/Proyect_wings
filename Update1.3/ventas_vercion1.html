@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Módulo de Ventas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="ventas_vercion.css">
+</head>
+
+<body class="bg-gray-100">
+  <div class="text-center text-3xl font-bold text-blue-600 mt-6">Módulo de Ventas</div>
+
+  <div class="flex justify-center mt-10 gap-6">
+    <!-- Sección de productos -->
+    <div class="bg-white p-6 rounded-lg shadow-lg w-[60%]">
+      <h2 class="text-xl font-bold mb-4">productos</h2>
+      <input type="text" placeholder="Buscar producto..." class="w-full p-2 border rounded mb-6" />
+      <div class="grid grid-cols-3 gap-4">
+        <!-- Producto 1 -->
+        <div class="bg-white rounded-lg shadow-md p-4 text-center">
+          <img src="img/producto1.jpg" alt="Alitas 10 piezas" class="w-full h-40 object-cover rounded" />
+          <h3 class="mt-2 font-bold">Alitas 10 piezas</h3>
+          <p class="text-blue-600">$105</p>
+          <button onclick="agregarProducto(1)" class="bg-blue-500 text-white px-4 py-1 rounded mt-2">Agregar</button>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="bg-white rounded-lg shadow-md p-4 text-center">
+          <img src="img/producto2.jpg" alt="Alitas 15 piezas" class="w-full h-40 object-cover rounded" />
+          <h3 class="mt-2 font-bold">Alitas 15 piezas</h3>
+          <p class="text-blue-600">$160</p>
+          <button onclick="agregarProducto(2)" class="bg-blue-500 text-white px-4 py-1 rounded mt-2">Agregar</button>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="bg-white rounded-lg shadow-md p-4 text-center">
+          <img src="img/producto3.jpg" alt="Alitas 20 piezas" class="w-full h-40 object-cover rounded" />
+          <h3 class="mt-2 font-bold">Alitas 20 piezas</h3>
+          <p class="text-blue-600">$210</p>
+          <button onclick="agregarProducto(3)" class="bg-blue-500 text-white px-4 py-1 rounded mt-2">Agregar</button>
+        </div>
+
+        <!-- Producto 4 -->
+
+      </div>
+    </div>
+
+    <!-- Sección del carrito -->
+    <div class="bg-white p-6 rounded-lg shadow-lg w-[30%]">
+      <h2 class="text-xl font-bold mb-4">Carrito de Compras</h2>
+      <div id="carrito-lista" class="text-gray-700 mb-4">El carrito está vacío</div>
+      <hr>
+      <div class="flex justify-between mt-4">
+        <strong>Total:</strong>
+        <strong id="total">$0.00</strong>
+      </div>
+      <button onclick="finalizarCompra()" class="w-full bg-green-300 text-white p-2 mt-4 rounded">Finalizar
+        Compra</button>
+    </div>
+  </div>
+
+  <script>
+    function agregarProducto(id) {
+      fetch('procesar.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ accion: 'agregar', id: id })
+      })
+        .then(response => response.json())
+        .then(data => actualizarCarrito(data));
+    }
+
+    function finalizarCompra() {
+      fetch('procesar.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ accion: 'finalizar' })
+      })
+        .then(response => response.json())
+        .then(data => actualizarCarrito(data));
+    }
+
+    function actualizarCarrito(data) {
+      const carritoLista = document.getElementById('carrito-lista');
+      const total = document.getElementById('total');
+
+      if (data.items.length === 0) {
+        carritoLista.innerHTML = 'El carrito está vacío';
+        total.textContent = '$0.00';
+        return;
+      }
+
+      carritoLista.innerHTML = data.items.map(item => `
+        <div class="flex justify-between items-center my-2">
+          <span>${item.nombre} x${item.cantidad}</span>
+          <span>$${item.subtotal}</span>
+        </div>
+      `).join('');
+
+      total.textContent = `$${data.total}`;
+    }
+  </script>
+</body>
+
+</html>

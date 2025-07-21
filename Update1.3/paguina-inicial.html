@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Laitas</title>
+  <link rel="stylesheet" href="paguina-inicial.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h3>Menú</h3>
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="ventas_vercion1.html"><i class="fas fa-store"></i> Ventas</a></li>
+      <li><a href="Inventario.html"><i class="fas fa-boxes"></i> Inventario</a></li>
+      <li><a href="inicio.html"><i class="fas fa-history"></i> Regresar</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <div class="panel">
+      <h2 class="panel-title">Panel Principal</h2>
+
+      <div class="metrics-container">
+        <div class="metric-card">
+          <h3 class="metric-label">Ventas Hoy</h3>
+          <p class="metric-value">$12,450</p>
+          <p class="metric-change positive">↑ 12% vs ayer</p>
+        </div>
+        <div class="metric-card">
+          <h3 class="metric-label">Transacciones</h3>
+          <p class="metric-value">42</p>
+          <p class="metric-change positive">↑ 8% vs ayer</p>
+        </div>
+        <div class="metric-card">
+          <h3 class="metric-label">Inventario</h3>
+          <p class="metric-value">1,289</p>
+          <p class="metric-change negative">↓ 5% stock bajo</p>
+        </div>
+      </div>
+
+      <div class="historial-box">
+        <h3 class="historial-title">Historial Reciente</h3>
+        <table class="historial-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Fecha</th>
+              <th>Producto</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#4587</td>
+              <td>10/05/2023</td>
+              <td>Producto A</td>
+              <td>$1,200</td>
+            </tr>
+            <tr>
+              <td>#4586</td>
+              <td>10/05/2023</td>
+              <td>Producto B</td>
+              <td>$850</td>
+            </tr>
+            <tr>
+              <td>#4585</td>
+              <td>09/05/2023</td>
+              <td>Producto C</td>
+              <td>$2,300</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
