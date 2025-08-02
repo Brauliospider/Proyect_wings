@@ -1,0 +1,8 @@
+Array
+(
+    [producto] => pa
+    [categoria] => snacks
+    [stock] => 56
+    [caducidad] => 2025-07-31
+    [estado] => Activo
+)

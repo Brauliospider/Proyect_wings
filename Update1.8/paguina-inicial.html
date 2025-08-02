@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Laitas</title>
+  <link rel="icon" href="alitaslogo.jpg">
+  <link rel="stylesheet" href="paguina-inicial.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style_historial.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black text-white min-h-screen p-6">
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h3>Menú</h3>
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="ventas.html"><i class="fas fa-store"></i> Ventas</a></li>
+      <li><a href="Inventario.html"><i class="fas fa-boxes"></i> Inventario</a></li>
+      <li><a href="inicio.html"><i class="fas fa-history"></i> Regresar</a></li>
+    </ul>
+  </div>
+
+  <div class="max-w-4xl mx-auto">
+    <header class="mb-10 text-center">
+      <h1 class="text-4xl font-bold mb-2">Historial de Ventas</h1>
+      <p class="text-gray-300">Módulo de seguimiento de ventas</p>
+    </header>
+
+    <div class="mb-8">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-semibold">Registros de Ventas</h2>
+        <div class="flex items-center space-x-2">
+          <span class="text-sm text-gray-400">Total vendido:</span>
+          <span id="totalVendido" class="text-xl font-bold">$0.00</span>
+        </div>
+      </div>
+
+      <div id="ventasContainer" class="space-y-4">
+        <!-- Las ventas se generarán automáticamente aquí -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón Finalizar fijo en esquina inferior derecha -->
+  <div class="fixed bottom-6 right-6">
+    <button onclick="finalizar()"
+      class="px-6 py-3 bg-black hover:bg-gray-800 text-white rounded-lg font-medium text-lg transition-all transform hover:scale-105 shadow-lg">
+      Finalizar y Calcular Total
+    </button>
+  </div>
+
+  <script src="script-historial.js"></script>
+</body>
+
+</html>
