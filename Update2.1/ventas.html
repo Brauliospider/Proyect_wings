@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="ventas_vercion.css" />
+  <title>Módulo de Ventas</title>
+  <link rel="icon" href="alitaslogo.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#1f1f1f] text-black-600">
+
+  <!-- Botón Inicio -->
+  <a href="paguina-inicial.html"
+    class="fixed top-4 left-4 bg-black border border-black text-white font-bold py-2 px-4 rounded shadow-md z-50 transition hover:bg-gray-900">
+    Inicio
+  </a>
+
+  <div class="container mx-auto p-4 max-w-6xl">
+    <h1 class="text-3xl font-bold text-center text-white">Módulo de Ventas</h1>
+
+    <div class="flex flex-col lg:flex-row gap-6">
+
+      <!-- Panel de productos -->
+      <div class="bg-white rounded-lg shadow-md p-4 lg:w-2/3">
+        <h2 class="text-xl font-semibold mb-4 text-gray-800">Productos</h2>
+
+        <div class="mb-4">
+          <input type="text" id="search-product" placeholder="Buscar producto..."
+            class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <div class="products-container overflow-y-auto h-96">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <!-- PRODUCTOS -->
+            <!-- Puedes copiar este bloque y cambiar nombre, precio e imagen -->
+            <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+              <div class="p-4">
+                <img src="Alitas.jpg" alt="Alitas 10 piezas" class="w-full h-40 object-cover rounded-md mb-3">
+                <h3 class="font-bold text-lg mb-1">Alitas con 10 piezas</h3>
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-blue-600">$105</span>
+                  <button onclick="addToCart('Alitas con 10 piezas', 105, 'Alitas.jpg')"
+                    class="bg-black border border-black hover:bg-gray-900 text-white px-3 py-1 rounded-md text-sm transition">
+                    Agregar
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- producto 2 -->
+            <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+              <div class="p-4">
+                <img src="Alitas.jpg" alt="Alitas 15 piezas" class="w-full h-40 object-cover rounded-md mb-3">
+                <h3 class="font-bold text-lg mb-1">Alitas con 15 piezas</h3>
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-blue-600">$160</span>
+                  <button onclick="addToCart('Alitas con 15 piezas', 160, 'Alitas.jpg')"
+                    class="bg-black border border-black hover:bg-gray-900 text-white px-3 py-1 rounded-md text-sm transition">
+                    Agregar
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- producto 2 -->
+            <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+              <div class="p-4">
+                <img src="Alitas.jpg" alt="Alitas 20 piezas" class="w-full h-40 object-cover rounded-md mb-3">
+                <h3 class="font-bold text-lg mb-1">Alitas con 20 piezas</h3>
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-blue-600">$210</span>
+                  <button onclick="addToCart('Alitas con 20 piezas', 210, 'Alitas.jpg')"
+                    class="bg-black border border-black hover:bg-gray-900 text-white px-3 py-1 rounded-md text-sm transition">
+                    Agregar
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Separador -->
+            <div class="col-span-full mt-6 mb-4 relative">
+              <hr class="border-gray-300">
+              <span class="absolute left-1/2 -translate-x-1/2 -top-3 bg-white px-4 text-gray-600">SNACKS</span>
+            </div>
+            <!-- producto 3 -->
+            <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+              <div class="p-4">
+                <img src="boneless.jpg" alt="Boneless (9 piezas)" class="w-full h-40 object-cover rounded-md mb-3">
+                <h3 class="font-bold text-lg mb-1">Boneless</h3>
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-blue-600">$95</span>
+                  <button onclick="addToCart('Boneless (9 piezas)', 95, 'boneless.jpg')"
+                    class="bg-black border border-black hover:bg-gray-900 text-white px-3 py-1 rounded-md text-sm transition">
+                    Agregar
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- producto 4 -->
+            <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+              <div class="p-4">
+                <img src="papasfran.jpeg" alt="Papas a la francesa" class="w-full h-40 object-cover rounded-md mb-3">
+                <h3 class="font-bold text-lg mb-1">Papas a la francesa</h3>
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-blue-600">$70</span>
+                  <button onclick="addToCart('Papas a la francesa', 70, 'papasfran.jpeg')"
+                    class="bg-black border border-black hover:bg-gray-900 text-white px-3 py-1 rounded-md text-sm transition">
+                    Agregar
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- producto 5 -->
+            <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+              <div class="p-4">
+                <img src="papasgajo.jpg" alt="Papas gajo" class="w-full h-40 object-cover rounded-md mb-3">
+                <h3 class="font-bold text-lg mb-1">Papas gajo</h3>
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-blue-600">$85</span>
+                  <button onclick="addToCart('Papas gajo', 85, 'papasgajo.jpg')"
+                    class="bg-black border border-black hover:bg-gray-900 text-white px-3 py-1 rounded-md text-sm transition">
+                    Agregar
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- producto 6 -->
+            <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+              <div class="p-4">
+                <img src="aros_decebolla.jpg" alt="Aros de cebolla" class="w-full h-40 object-cover rounded-md mb-3">
+                <h3 class="font-bold text-lg mb-1">Aros de cebolla</h3>
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-blue-600">$70</span>
+                  <button onclick="addToCart('Aros de cebolla', 70, 'aros_decebolla.jpg')"
+                    class="bg-black border border-black hover:bg-gray-900 text-white px-3 py-1 rounded-md text-sm transition">
+                    Agregar
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- producto 7 -->
+            <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+              <div class="p-4">
+                <img src="dedos_de_queso.jpg" alt="Dedos de queso" class="w-full h-40 object-cover rounded-md mb-3">
+                <h3 class="font-bold text-lg mb-1">Dedos de queso</h3>
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-blue-600">$85</span>
+                  <button onclick="addToCart('Dedos de queso', 85, 'dedos_de_queso.jpg')"
+                    class="bg-black border border-black hover:bg-gray-900 text-white px-3 py-1 rounded-md text-sm transition">
+                    Agregar
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- producto 8 -->
+            <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+              <div class="p-4">
+                <img src="palomitas_pollo.jpg" alt="Palomitas de pollo"
+                  class="w-full h-40 object-cover rounded-md mb-3">
+                <h3 class="font-bold text-lg mb-1">Palomitas de pollo</h3>
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-blue-600">$85</span>
+                  <button onclick="addToCart('Palomitas de pollo', 85, 'palomitas_pollo.jpg')"
+                    class="bg-black border border-black hover:bg-gray-900 text-white px-3 py-1 rounded-md text-sm transition">
+                    Agregar
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- producto 9 -->
+            <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all fade-in">
+              <div class="p-4">
+                <img src="nuggets.jpeg" alt="Nuggets" class="w-full h-40 object-cover rounded-md mb-3">
+                <h3 class="font-bold text-lg mb-1">Nuggets</h3>
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-blue-600">$70</span>
+                  <button onclick="addToCart('Nuggets',70, 'nuggets.jpeg')"
+                    class="bg-black border border-black hover:bg-gray-900 text-white px-3 py-1 rounded-md text-sm transition">
+                    Agregar
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Sigue agregando productos aquí -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Carrito -->
+      <div class="bg-white rounded-lg shadow-md p-4 lg:w-1/3">
+        <h2 class="text-xl font-semibold mb-4 text-gray-800">Carrito de Compras</h2>
+        <div id="cart-items" class="mb-4 max-h-64 overflow-y-auto">
+          <p id="empty-cart-message" class="text-gray-500 text-center py-4">El carrito está vacío</p>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <div class="flex justify-between mb-4 font-bold text-lg">
+            <span>Total:</span>
+            <span id="total">$0.00</span>
+          </div>
+          <button id="checkout-btn" onclick="checkout()" disabled
+            class="w-full bg-black border border-black hover:bg-gray-900 text-white py-2 rounded-md transition opacity-50 cursor-not-allowed">
+            Finalizar Compra
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="ventas.js"></script>
+</body>
+
+</html>

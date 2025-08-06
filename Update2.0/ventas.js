@@ -84,6 +84,7 @@ function updateCart() {
 }
 
 // Imprimir directamente sin ticket emergente
+//llama a la base de datos para registrar la compra y luego imprime el ticket
 function checkout() {
   if (cart.length === 0) return;
 

@@ -1,0 +1,119 @@
+/* Estilos personalizados para el módulo de inventario */
+body {
+    background-color: #1a202c; /* Dark charcoal for the body background */
+    color: #e2e8f0; /* Light gray for general text */
+}
+
+/* Hover effect for product cards (if you add .product-card to individual cards later) */
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Darker shadow for dark mode */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Scrollbar styles for dark mode */
+.inventory-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.inventory-container::-webkit-scrollbar-track {
+    background: #2d3748; /* Darker track */
+}
+
+.inventory-container::-webkit-scrollbar-thumb {
+    background: #4a5568; /* Darker thumb */
+    border-radius: 44px;
+}
+
+/* Status colors remain distinctive */
+.expiring-soon {
+    border-left: 4px solid #f59e0b; /* Orange */
+}
+
+.expired {
+    border-left: 4px solid #ef4444; /* Red */
+}
+
+/* Modal specific styles for dark mode */
+#product-modal {
+    transition: opacity 0.3s ease;
+}
+
+/* Adjustments for elements that were originally white or had black text */
+.container.mx-auto.p-4.max-w-6xl h1 {
+    color: #63b3ed; /* Lighter blue for the main title */
+}
+
+.bg-white {
+    background-color: #2d3748; /* Darker background for formerly white sections */
+    color: #e2e8f0; /* Lighter text for these sections */
+}
+
+.bg-gray-50 { /* Table header background */
+    background-color: #4a5568; /* Darker gray for table header */
+}
+
+.text-gray-500 { /* Table header text and other muted texts */
+    color: #a0aec0; /* Lighter gray for muted text */
+}
+
+.text-gray-900 { /* Main text in table cells */
+    color: #e2e8f0; /* White/light text */
+}
+
+.divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
+    border-color: #4a5568; /* Darker dividers */
+}
+
+/* Form input adjustments */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    background-color: #4a5568; /* Darker background for inputs */
+    border-color: #636b6f; /* Slightly lighter border */
+    color: #e2e8f0; /* White/light text in inputs */
+}
+
+/* Placeholder text color */
+input::placeholder {
+    color: #a0aec0;
+}
+
+/* Specific text color for modal labels */
+label {
+    color: #e2e8f0; /* White/light text for form labels */
+}
+
+/* Ensure buttons maintain their original colors for functionality/branding */
+.bg-blue-600, .bg-blue-500, .bg-green-500 {
+    color: #fff; /* Keep text white on these buttons */
+}
+.bg-gray-300 {
+    background-color: #636b6f; /* Darker gray for cancel button */
+    color: #e2e8f0; /* Light text for cancel button */
+}
+.bg-gray-300:hover {
+    background-color: #718096; /* Slightly lighter on hover */
+}
+
+/* Adjust text colors for status pills if they were specifically black */
+.bg-red-100 { background-color: #fed7d7; color: #9b2c2c; } /* Adjust as needed */
+.bg-yellow-100 { background-color: #fefcbf; color: #975a16; } /* Adjust as needed */
+.bg-orange-100 { background-color: #feebc8; color: #9c4221; } /* Adjust as needed */
+.bg-green-100 { background-color: #c6f6d5; color: #2f855a; } /* Adjust as needed */
+
+/* Target the numbers in the indicator cards */
+#total-products,
+#low-stock,
+#expiring-soon {
+    color: #000; /* Black color for the numbers */
+}

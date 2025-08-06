@@ -1,0 +1,8 @@
+Array
+(
+    [producto] => alitas
+    [categoria] => alitas
+    [stock] => 60
+    [caducidad] => 2025-08-31
+    [estado] => Activo
+)
